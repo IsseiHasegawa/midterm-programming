@@ -32,5 +32,11 @@ The file also contains a `flawed_benchmark()` function. The developer who wrote 
 
 2. Run the empirical comparion and plot the results using a plotting library of your choice (e.g., `matplotlib`, `seaborn`, etc.). Include the plot in your submission called `results.png`. Be sure to label your axes and include a legend.
 
+   ![Benchmark results](results.png)
+
+   The results match the expected growth rates. From n = 500 on, every time n doubles, the slow algorithm takes about 4 times longer (for example, 0.0062 s at n = 1000 and 0.0256 s at n = 2000), while the fast algorithm only takes about 2 times longer (0.000027 s at n = 1000 and 0.000058 s at n = 2000). This is what we expect from O(n^2) and O(n). The jump from 250 to 500 is about 5 times for the slow algorithm, which I think is because the runs at n = 250 only take about 0.0003 s and are easily affected by noise.
+
+   The log-log graph makes this easier to see. On a log-log plot, a function like n^k shows up as a straight line with slope k. When I fit a line to the measured times, the slope was about 2.1 for the slow algorithm and about 1.0 for the fast algorithm, and both lines follow the reference lines in the plot. On the linear graph, the fast algorithm looks almost flat because it is so much faster. At n = 5000, the slow algorithm took 0.163 s and the fast algorithm took 0.00018 s, which is about 900 times faster, and this gap keeps growing as n gets larger.
+
 
 
