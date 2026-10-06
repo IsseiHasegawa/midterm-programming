@@ -52,7 +52,7 @@ def time_once(func, data):
     return time.perf_counter() - start
 
 
-def benchmark(sizes=SIZES, trials=TRIALS, seed=SEED):
+def flawed_benchmark(sizes=SIZES, trials=TRIALS, seed=SEED):
     """
     Time both algorithms on the same worst-case inputs across several sizes.
     Returns {algorithm name: [median seconds for each n in sizes]}.
@@ -133,5 +133,5 @@ def plot_results(sizes, results, path="results.png"):
 
 
 if __name__ == "__main__":
-    results = benchmark()
+    results = flawed_benchmark()
     plot_results(SIZES, results)
